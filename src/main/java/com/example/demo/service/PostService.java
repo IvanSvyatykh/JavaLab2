@@ -8,10 +8,17 @@ import java.util.*;
 @Service
 public class PostService {
 
-    public List<Post> listAllPosts() {
+    private ArrayList<Post> posts = new ArrayList<>(Arrays.asList(
+            new Post("Hello", new Date()),
+            new Post("Good morning!", new Date()),
+            new Post("Good evening!", new Date())));
 
-        return Arrays.asList(new Post("Hello", new Date(2024, Calendar.FEBRUARY, 5)),
-                new Post("Good morning!", new Date(2024, Calendar.MARCH, 4)),
-                new Post("Good evening!", new Date(2024, Calendar.JANUARY, 3)));
+    public List<Post> listAllPosts() {
+        return posts;
+    }
+
+    public void create(String text) {
+        Post post = new Post(text, new Date());
+        posts.add(post);
     }
 }
