@@ -9,16 +9,16 @@ import java.util.*;
 public class PostService {
 
     private ArrayList<Post> posts = new ArrayList<>(Arrays.asList(
-            new Post("Hello", new Date()),
-            new Post("Good morning!", new Date()),
-            new Post("Good evening!", new Date())));
+            new Post(0L, "Hello", new Date()),
+            new Post(1L, "Good morning!", new Date()),
+            new Post(2L, "Good evening!", new Date())));
 
     public List<Post> listAllPosts() {
         return posts;
     }
 
     public void create(String text) {
-        Post post = new Post(text, new Date());
+        Post post = new Post(Long.valueOf(posts.size()), text, new Date());
         posts.add(post);
     }
 }
